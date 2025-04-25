@@ -18,8 +18,8 @@ const { pageTitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle ?? "JAXN.DEV"}</title>
   </head>
-  <body class={classNames(COLORS.PAGE.BACKGROUND, COLORS.PAGE.TEXT)}>
-    <main class="min-h-screen flex flex-col">
+  <body>
+    <main class="flex flex-col min-h-screen max-w-8xl m-auto">
       <Header />
       <div
         class={classNames(

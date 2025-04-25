@@ -1,7 +1,12 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Introduction from "../components/Introduction.astro";
+import TagVisualizer from "../components/TagVisualizer.astro";
 ---
 
 <DefaultLayout>
-  <p>This is a paragraph.</p>
+  <div class="flex flex-col gap-8">
+    <Introduction />
+    <TagVisualizer />
+  </div>
 </DefaultLayout>

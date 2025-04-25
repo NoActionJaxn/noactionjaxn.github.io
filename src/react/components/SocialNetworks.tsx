@@ -1,15 +1,14 @@
-import { label } from "framer-motion/client";
-import type { SocialNetworkEdge } from "../../types/socialNetworks";
 import { COLORS } from "../../constants/classes";
 import classNames from "classnames";
+import type { CaisyEdge, SocialNetworkNode } from "../../types/requests";
 
 export interface SocialNetworksProps {
-  socialNetworks: SocialNetworkEdge[];
+  socialNetworks: CaisyEdge<SocialNetworkNode>[];
 }
 
 function SocialNetworks({ socialNetworks }: SocialNetworksProps) {
   return (
-    <ul className="space-x-0.5">
+    <ul className="sm:block hidden space-x-0.5">
       {socialNetworks.map(({ node }) => (
         <li key={node.id} className="inline-block">
           <a href={node.connectionUrl}
