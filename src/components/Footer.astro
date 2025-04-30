@@ -1,14 +1,44 @@
 ---
+import { Image } from "astro:assets";
 import classNames from "classnames";
 import { SPACING } from "../constants/classes";
 import PageLogo from "../react/components/PageLogo";
+import { fetchTechStack } from "../lib/requests";
+
+const techStacks = fetchTechStack.allTechStackItem.edges;
 ---
 
 <footer
-  class={classNames("flex text-2xs", SPACING.PAGE.PADDING.X, SPACING.PAGE.PADDING.Y)}
+  class={classNames(
+    "flex text-2xs",
+    SPACING.PAGE.PADDING.X,
+    SPACING.PAGE.PADDING.Y
+  )}
 >
   <div class="flex-1">
     <PageLogo className="text-2xs" client:only="react" />
   </div>
-  <div>Powered by</div>
+  <div class="flex gap-2">
+    <span>Powered by</span>
+    <ul class="sm:block hidden space-x-1">
+      {
+        techStacks.map(({ node }) => (
+          <li class="inline-block">
+            <a href={node.url} target="_blank" rel="noopener noreferrer">
+              <Image
+                class="size-3.5 filter"
+                src={node.icon.src}
+                alt={node.icon.title}
+                width={node.icon.width}
+                height={node.icon.height}
+                inferSize={true}
+                loading="lazy"
+              />
+              <span class="sr-only">{node.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </footer>

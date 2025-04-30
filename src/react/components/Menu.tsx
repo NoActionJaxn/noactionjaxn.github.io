@@ -24,7 +24,7 @@ function Menu() {
         SPACING.PAGE.PADDING.X,
         SPACING.PAGE.PADDING.Y,
       )}
-      onClick={() => setIsOpen(false)}>
+    >
       <div ref={menuRef} className={classNames("flex flex-col md:w-1/2 w-full p-2 gap-3 rounded-lg shadow-lg", COLORS.MENU.BACKGROUND)}>
         <div className="bg-gruvbox-bg0 dark:bg-gruvbox-dark-bg1 px-2 py-1 rounded-lg">
           <h6 className="text-xs select-none">&#8942;&#8942; Menu</h6>

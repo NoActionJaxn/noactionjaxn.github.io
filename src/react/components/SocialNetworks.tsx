@@ -11,10 +11,10 @@ function SocialNetworks({ socialNetworks }: SocialNetworksProps) {
     <ul className="sm:block hidden space-x-0.5">
       {socialNetworks.map(({ node }) => (
         <li key={node.id} className="inline-block">
-          <a href={node.connectionUrl}
+          <a
+            href={node.connectionUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={node.label}
             className={classNames(
               "relative size-10 flex items-center justify-center cursor-pointer rounded-lg",
               COLORS.HEADER_BUTTON.TEXT,

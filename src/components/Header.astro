@@ -1,29 +1,13 @@
 ---
 import classNames from "classnames";
-import { gql } from "graphql-request";
 import MenuButton from "../react/components/MenuButton";
 import ThemeToggleButton from "../react/components/ThemeToggleButton";
 import PageLogo from "../react/components/PageLogo";
 import { SPACING, COLORS } from "../constants/classes";
-import { client } from "../lib/graphql";
 import SocialNetworks from "../react/components/SocialNetworks";
-import type { SocialNetworkResponse } from "../types/requests";
+import { fetchNetworks } from "../lib/requests";
 
-const gqlResponse: SocialNetworkResponse = await client.request(gql`
-  query fetchNetworks {
-    allSocialNetworks {
-      edges {
-        node {
-          id
-          fontAwesomeIcon
-          connectionUrl
-        }
-      }
-    }
-  }
-`);
-
-const socialNetworks = gqlResponse.allSocialNetworks.edges;
+const socialNetworks = fetchNetworks.allSocialNetworks.edges;
 ---
 
 <header

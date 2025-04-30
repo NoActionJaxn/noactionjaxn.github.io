@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import RichTextRenderer from "@caisy/rich-text-astro-renderer";
+import { dateOptions, locale } from "../../constants/dateFormat";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import { fetchBlogPosts } from "../../lib/requests";
+import { isPostUpdated } from "../../lib/util";
+
+export async function getStaticPaths() {
+  const posts = fetchBlogPosts.allBlogPost.edges;
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.node.slug,
+    },
+    props: {
+      title: post.node.title,
+      tagline: post.node.tagline,
+      content: post.node.content.json,
+      thumbnail: post.node.thumbnail,
+      isUpdated: isPostUpdated(post.node),
+      publishedAt: new Date(post.node._meta.publishedAt).toLocaleDateString(
+        locale,
+        dateOptions
+      ),
+      firstPublishedAt: new Date(
+        post.node._meta.firstPublishedAt
+      ).toLocaleDateString(locale, dateOptions),
+    },
+  }));
+}
+
+const {
+  title,
+  tagline,
+  content,
+  thumbnail,
+  isUpdated,
+  firstPublishedAt,
+  publishedAt,
+} = Astro.props;
+---
+
+<DefaultLayout>
+  <div class="grid grid-cols-3 gap-8">
+    <div class="space-y-8">
+      <div class="rounded-lg overflow-hidden shadow">
+        <Image
+          src={thumbnail.src}
+          width={thumbnail.width}
+          height={thumbnail.height}
+          alt="Thumbnail"
+          loading="eager"
+          inferSize
+        />
+      </div>
+      <div
+        class="p-8 bg-gruvbox-bg0 dark:bg-gruvbox-dark-bg0 rounded-lg shadow"
+      >
+        <p class="text-gruvbox-fg2 dark:text-gruvbox-dark-fg2">
+          Published: {firstPublishedAt}
+        </p>
+        {
+          isUpdated && (
+            <p class="text-gruvbox-fg4 dark:text-gruvbox-dark-fg4">
+              Last Updated: {publishedAt}
+            </p>
+          )
+        }
+      </div>
+    </div>
+    <div
+      class="bg-gruvbox-bg3 dark:bg-gruvbox-dark-bg3 rounded-lg shadow col-span-2 space-y-8 p-8"
+    >
+      <div class="space-y-4">
+        <h2>{title}</h2>
+        <h4>{tagline}</h4>
+      </div>
+      <div class="text-xl space-y-2">
+        <RichTextRenderer node={content} />
+      </div>
+    </div>
+  </div>
+</DefaultLayout>

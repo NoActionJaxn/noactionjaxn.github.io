@@ -70,7 +70,7 @@
 
   html,
   body {
-    @apply h-full w-full bg-radial-[at_70%_15%] from-gruvbox-bg1 to-gruvbox-bg3 dark:from-gruvbox-dark-bg3 dark:to-gruvbox-dark-bg1 text-gruvbox-fg0 dark:text-gruvbox-dark-fg0;
+    @apply h-full w-full bg-scroll bg-radial-[at_70%_15%] from-gruvbox-bg1 to-gruvbox-bg3 dark:from-gruvbox-dark-bg3 dark:to-gruvbox-dark-bg1 text-gruvbox-fg0 dark:text-gruvbox-dark-fg0;
   }
 
   h1, h2, h3 {
