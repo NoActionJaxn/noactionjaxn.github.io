@@ -1,6 +1,6 @@
 export const ROUTES = {
   'index': {
-    'path': '.',
+    'path': '/',
     'label': 'Home',
   },
   'about': {

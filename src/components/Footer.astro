@@ -32,7 +32,7 @@ const techStacks = fetchTechStack.allTechStackItem.edges;
                 width={node.icon.width}
                 height={node.icon.height}
                 inferSize={true}
-                loading="lazy"
+                loading="eager"
               />
               <span class="sr-only">{node.title}</span>
             </a>
