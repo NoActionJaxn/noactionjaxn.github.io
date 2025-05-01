@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import { locale, dateOptions } from "../../constants/dateFormat";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import { fetchProjects } from "../../lib/requests";
+import { isPostUpdated } from "../../lib/util";
+import RichTextRenderer from "@caisy/rich-text-astro-renderer";
+
+export async function getStaticPaths() {
+  const posts = fetchProjects.allProjects.edges;
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.node.slug,
+    },
+    props: {
+      title: post.node.title,
+      content: post.node.content.json,
+      thumbnail: post.node.thumbnail,
+      isUpdated: isPostUpdated(post.node),
+      publishedAt: new Date(post.node._meta.publishedAt).toLocaleDateString(
+        locale,
+        dateOptions
+      ),
+      firstPublishedAt: new Date(
+        post.node._meta.firstPublishedAt
+      ).toLocaleDateString(locale, dateOptions),
+    },
+  }));
+}
+
+const { title, content, thumbnail, isUpdated, firstPublishedAt, publishedAt } =
+  Astro.props;
+---
+
+<DefaultLayout>
+  <div class="space-y-8">
+    <div class="rounded-lg overflow-hidden shadow">
+      <Image
+        src={thumbnail.src}
+        width={thumbnail.width}
+        height={thumbnail.height}
+        alt="Thumbnail"
+        loading="eager"
+        inferSize
+      />
+    </div>
+    <div class="text-gruvbox-fg2 dark:text-gruvbox-dark-fg2 space-y-4">
+      <h1>{title}</h1>
+      <RichTextRenderer node={content} />
+    </div>
+  </div>
+</DefaultLayout>

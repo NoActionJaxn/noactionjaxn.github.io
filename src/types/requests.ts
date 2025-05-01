@@ -46,6 +46,29 @@ export interface BlogPostsNode {
   };
 }
 
+export interface ProjectNode {
+  _meta: CaisyMeta;
+  id: string;
+  title: string;
+  tags: {
+    id: string;
+    name: string;
+  }[];
+  slug: string;
+  thumbnail: {
+    id: string;
+    title: string;
+    originalName: string;
+    src: string;
+    originType: string;
+    width: number;
+    height: number;
+  };
+  content: {
+    json: JSON;
+  };
+}
+
 export interface SocialNetworkNode {
   connectionUrl: string;
   fontAwesomeIcon: string;
@@ -85,5 +108,11 @@ export interface TechStackResponse {
 export interface BlogPostsResponse {
   allBlogPost: {
     edges: CaisyEdge<BlogPostsNode>[];
+  };
+};
+
+export interface ProjectResponse {
+  allProjects: {
+    edges: CaisyEdge<ProjectNode>[];
   };
 };

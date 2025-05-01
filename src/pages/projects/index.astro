@@ -1,7 +1,49 @@
 ---
+import { Image } from "astro:assets";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import { fetchProjects } from "../../lib/requests";
+import RichTextRenderer from "@caisy/rich-text-astro-renderer";
+import { ROUTES } from "../../constants/routes";
+
+const posts = fetchProjects.allProjects.edges;
+const locale = "en-us";
+
+const dateOptions: Intl.DateTimeFormatOptions = {
+  year: "numeric",
+  month: "short",
+  day: "2-digit",
+};
 ---
 
 <DefaultLayout>
-  <p>This is a paragraph.</p>
+  <div class="grid grid-cols-1 gap-y-4">
+    {
+      posts.map((post) => (
+        <a
+          href={`${ROUTES.projects.path}/${post.node.slug}`}
+          class="rounded-lg shadow overflow-hidden bg-gruvbox-bg0 dark:bg-gruvbox-dark-bg0 flex flex-row gap-8 items-center h-24 w-auto"
+        >
+          <div class="grow-0 w-64 overflow-hidden">
+            <Image
+              src={post.node.thumbnail.src}
+              height={post.node.thumbnail.height}
+              width={post.node.thumbnail.width}
+              alt="Thumbnail"
+            />
+          </div>
+          <div class="flex grow">
+            <div>
+              <h3>{post.node.title}</h3>
+            </div>
+          </div>
+          <div class="flex items-center justify-center pr-8 text-2xl">
+            <span class="text-gruvbox-bg4 dark:text-gruvbox-dark-bg4">
+              <i class="fa-solid fa-arrow-up-right-from-square" />
+              <span class="sr-only">Read more</span>
+            </span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
 </DefaultLayout>

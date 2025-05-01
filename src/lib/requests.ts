@@ -1,5 +1,5 @@
 import { gql } from "graphql-request";
-import type { BlogPostsResponse, SocialNetworkResponse, TechStackResponse } from "../types/requests";
+import type { BlogPostsResponse, ProjectResponse, SocialNetworkResponse, TechStackResponse } from "../types/requests";
 import { client } from "./graphql";
 
 export const fetchBlogPosts: BlogPostsResponse = await client.request(gql`
@@ -71,6 +71,42 @@ export const fetchNetworks: SocialNetworkResponse = await client.request(gql`
           label
           fontAwesomeIcon
           connectionUrl
+        }
+      }
+    }
+  }
+`);
+
+export const fetchProjects: ProjectResponse = await client.request(gql`
+  query fetchProjects {
+    allProjects {
+      edges {
+        node {
+          _meta {
+            createdAt
+            firstPublishedAt
+            id
+            locale
+            locales
+            publishedAt
+            updatedAt
+          }
+          content {
+            json
+          }
+          id
+          tags
+          title
+          slug
+          thumbnail {
+            height
+            id
+            originType
+            originalName
+            src
+            title
+            width
+          }
         }
       }
     }
