@@ -13,5 +13,6 @@ export default defineConfig({
 
   integrations: [react({
     experimentalReactChildren: true,
-  })]
+  })],
+  site: 'https://noactionjaxn.github.io',
 });
