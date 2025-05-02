@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -10,9 +10,15 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-
   integrations: [react({
     experimentalReactChildren: true,
   })],
   site: 'https://noactionjaxn.github.io',
+  env: {
+    schema: {
+      CAISY_API_KEY: envField.string({ context: "server", access: "secret"}),
+      CAISY_PROJECT_ID: envField.string({ context: "server", access: "secret"}),
+    },
+    validateSecrets: true,
+  }
 });
