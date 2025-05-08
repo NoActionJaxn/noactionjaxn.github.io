@@ -1,22 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import classNames from "classnames";
-import { SPACING } from "../constants/classes";
-import PageLogo from "../react/components/PageLogo";
 import { fetchTechStack } from "../lib/requests";
+import PageLogo from "./PageLogo.astro";
 
 const techStacks = fetchTechStack.allTechStackItem.edges;
 ---
 
-<footer
-  class={classNames(
-    "flex text-2xs",
-    SPACING.PAGE.PADDING.X,
-    SPACING.PAGE.PADDING.Y
-  )}
->
+<footer class="flex text-2xs p-4">
   <div class="flex-1">
-    <PageLogo className="text-2xs" client:only="react" />
+    <PageLogo />
   </div>
   <div class="flex gap-2">
     <span>Powered by</span>

@@ -1,0 +1,18 @@
+---
+import { THEME_COLORS } from "../constants/classes";
+import { ROUTES } from "../constants/routes";
+
+const { classes } = Astro.props;
+---
+
+<a
+  href={ROUTES.index.path}
+  class:list={[
+    "items-center uppercase font-bold no-underline select-none cursor-pointer rounded px-2 py-1 tracking-widest font-ibm-plex-sans",
+    THEME_COLORS.text.bg0,
+    THEME_COLORS.background.fg0,
+    classes,
+  ]}
+>
+  <span>NoActionJaxn</span>
+</a>

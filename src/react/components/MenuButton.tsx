@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { motion } from "framer-motion";
-import { COLORS } from "../../constants/classes";
 import useMenu from "../hooks/useMenu";
 
 const barStyles = "block w-full rounded-full h-0.5 bg-gruvbox-fg0 dark:bg-gruvbox-dark-fg0";
@@ -12,11 +11,7 @@ function HamburgerMenu() {
     <button
       type="button"
       onClick={toggle}
-      className={classNames(
-        "relative size-10 flex items-center justify-center cursor-pointer rounded-lg",
-        COLORS.HEADER_BUTTON.TEXT,
-        COLORS.HEADER_BUTTON.BACKGROUND,
-      )}
+      className="relative size-10 flex items-center justify-center cursor-pointer rounded-lg bg-transparent dark:bg-transparent hover:bg-gruvbox-bg0_h/75 dark:hover:bg-gruvbox-dark-bg0_h/75"
     >
       <motion.div
         initial={false}

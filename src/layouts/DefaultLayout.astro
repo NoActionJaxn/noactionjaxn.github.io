@@ -1,9 +1,7 @@
 ---
-import classNames from "classnames";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SPACING } from "../constants/classes";
-import Menu from "../react/components/Menu";
+import Menu from "../components/Menu.astro";
 import "../styles/global.css";
 
 const { pageTitle } = Astro.props;
@@ -16,32 +14,20 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle ?? "JAXN.DEV"}</title>
-
-    <script>
-      document.documentElement.setAttribute(
-        "data-theme",
-        localStorage.getItem("theme") || "light"
-      );
-    </script>
+    <title>{pageTitle ?? "NOACTIONJAXN.DEV"}</title>
   </head>
   <body>
-    <main class="flex flex-col min-h-screen m-auto">
+    <main class="flex flex-col min-h-screen p-4 gap-4">
       <Header />
-      <div
-        class={classNames(
-          "flex-1",
-          SPACING.PAGE.PADDING.X,
-          SPACING.PAGE.PADDING.Y
-        )}
-      >
+      <div class="flex-1">
         <slot />
       </div>
       <Footer />
     </main>
-    <Menu client:only="react" />
+    <Menu />
     <script
       src="https://kit.fontawesome.com/1aad4926f4.js"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+      is:inline></script>
   </body>
 </html>

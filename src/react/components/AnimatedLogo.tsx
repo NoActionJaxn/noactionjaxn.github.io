@@ -2,7 +2,7 @@ import classNames from "classnames";
 import useTypingSimulator from "../hooks/useTypingSimulator";
 
 function AnimatedLogo() {
-  const { displayedText, showCursor } = useTypingSimulator('jaxn.dev');
+  const { displayedText, showCursor } = useTypingSimulator('NoActionJaxn');
 
   return (
     <span>
