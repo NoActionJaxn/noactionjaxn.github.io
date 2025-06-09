@@ -1,0 +1,18 @@
+---
+import { ROUTES } from "../constants/routes";
+
+interface Props {
+  classNames?: string[];
+}
+
+const { classNames = [] } = Astro.props;
+---
+
+<div
+  class:list={[
+    "w-min h-min bg-gruvbox-fg2 text-gruvbox-bg1 px-2 py-0.5 rounded",
+    ...classNames,
+  ]}
+>
+  <a class="lowercase font-bold" href={ROUTES.home.path}>noactionjaxn</a>
+</div>

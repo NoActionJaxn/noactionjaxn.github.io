@@ -1,67 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Quicksand:wght@300..700&display=swap");
 @import "tailwindcss";
-@import "./fonts.css";
-
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-@theme  {
-  --font-hack: 'Hack', sans-serif;
-  --font-ibm-plex-sans: 'IBM Plex Sans', sans-serif;
-  --default-font-family: var(--font-hack);
-  --color-gruvbox-dark-bg0_h: #1d2021;
-  --color-gruvbox-dark-bg0: #282828;
-  --color-gruvbox-dark-bg1: #3c3836;
-  --color-gruvbox-dark-bg2: #504945;
-  --color-gruvbox-dark-bg3: #665c54;
-  --color-gruvbox-dark-bg4: #7c6f64;
-  --color-gruvbox-dark-fg0: #fbf1c7;
-  --color-gruvbox-dark-fg1: #ebdbb2;
-  --color-gruvbox-dark-fg2: #d5c4a1;
-  --color-gruvbox-dark-fg3: #bdae93;
-  --color-gruvbox-dark-fg4: #a89984;
-  --color-gruvbox-dark-red: #fb4934;
-  --color-gruvbox-dark-red-alt: #cc241d;
-  --color-gruvbox-dark-green: #b8bb26;
-  --color-gruvbox-dark-green-alt: #98971a;
-  --color-gruvbox-dark-yellow: #fabd2f;
-  --color-gruvbox-dark-yellow-alt: #d79921;
-  --color-gruvbox-dark-blue: #83a598;
-  --color-gruvbox-dark-blue-alt: #458588;
-  --color-gruvbox-dark-purple: #d3869b;
-  --color-gruvbox-dark-purple-alt: #b16286;
-  --color-gruvbox-dark-aqua: #8ec07c;
-  --color-gruvbox-dark-aqua-alt: #689d6a;
-  --color-gruvbox-dark-orange: #fe8019;
-  --color-gruvbox-dark-orange-alt: #d65d0e;
-  --color-gruvbox-dark-gray: #a89984;
-  --color-gruvbox-bg0_h: #fdfbe6;
-  --color-gruvbox-bg0: #fbf1c7;
-  --color-gruvbox-bg1: #ebdbb2;
-  --color-gruvbox-bg2: #d5c4a1;
-  --color-gruvbox-bg3: #bdae93;
-  --color-gruvbox-bg4: #a89984;
-  --color-gruvbox-fg0: #1d2021;
-  --color-gruvbox-fg1: #3c3836;
-  --color-gruvbox-fg2: #504945;
-  --color-gruvbox-fg3: #665c54;
-  --color-gruvbox-fg4: #7c6f64;
-  --color-gruvbox-red: #cc241d;
-  --color-gruvbox-red-alt: #fb4934;
-  --color-gruvbox-green: #98971a;
-  --color-gruvbox-green-alt: #b8bb26;
-  --color-gruvbox-yellow: #d79921;
-  --color-gruvbox-yellow-alt: #fabd2f;
-  --color-gruvbox-blue: #458588;
-  --color-gruvbox-blue-alt: #83a598;
-  --color-gruvbox-purple: #b16286;
-  --color-gruvbox-purple-alt: #d3869b;
-  --color-gruvbox-aqua: #689d6a;
-  --color-gruvbox-aqua-alt: #8ec07c;
-  --color-gruvbox-orange: #d65d0e;
-  --color-gruvbox-orange-alt: #fe8019;
-  --color-gruvbox-gray: #a89984;
-  --text-2xs: 0.625rem;
-  --spacing-8xl: 86rem;
-}
+@import "./theme.css";
 
 @layer base {
   * {
@@ -70,38 +9,10 @@
 
   html,
   body {
-    @apply h-full w-full bg-fixed bg-radial-[at_70%_15%] from-gruvbox-bg1 to-gruvbox-bg3 dark:from-gruvbox-dark-bg3 dark:to-gruvbox-dark-bg1 text-gruvbox-fg0 dark:text-gruvbox-dark-fg0;
+    @apply w-screen min-h-screen;
   }
 
-  h1, h2, h3 {
-    @apply font-hack font-bold uppercase;
-  }
-
-  h4, h5, h6 {
-    @apply font-ibm-plex-sans text-gruvbox-fg2 dark:text-gruvbox-dark-fg2
-  }
-
-  h1 {
-    @apply text-8xl;
-  }
-
-  h2 {
-    @apply text-6xl;
-  }
-
-  h3 {
-    @apply text-4xl;
-  }
-
-  h4 {
-    @apply text-4xl;
-  }
-
-  h5 {
-    @apply text-2xl;
-  }
-
-  h6 {
-    @apply text-xl;
+  body {
+    @apply bg-gruvbox-bg1 text-gruvbox-fg2;
   }
 }

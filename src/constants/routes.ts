@@ -1,18 +1,27 @@
-export const ROUTES = {
-  'index': {
-    'path': '/',
-    'label': 'Home',
+interface Route {
+  path: string;
+  label: string;
+}
+
+export const ROUTES: Record<string, Route> = {
+  home: {
+    path: "/",
+    label: "Home",
   },
-  'about': {
-    'path': '/about',
-    'label': 'About',
+  about: {
+    path: "/about",
+    label: "About",
   },
-  'projects': {
-    'path': '/projects',
-    'label': 'Projects',
+  projects: {
+    path: "/projects",
+    label: "Projects",
   },
-  'blog': {
-    'path': '/blog',
-    'label': 'Blog',
+  blog: {
+    path: "/blog",
+    label: "Blog",
+  },
+  contact: {
+    path: "/contact",
+    label: "Contact",
   },
 };
