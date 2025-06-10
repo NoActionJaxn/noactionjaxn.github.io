@@ -1,8 +1,9 @@
 ---
 import allSocialNetworksQuery from "../lib/requests/allSocialNetworks";
 import Logo from "./Logo.astro";
-import Menu from "./Menu.astro";
+import NavigationMenu from "./NavigationMenu.astro";
 import MenuButton from "./react/MenuButton";
+import SocialNetworks from "./SocialNetworks.astro";
 
 const socialNetworks = await allSocialNetworksQuery;
 ---
@@ -11,28 +12,19 @@ const socialNetworks = await allSocialNetworksQuery;
   class="flex justify-between items-center fixed z-30 h-36 w-full px-20 py-16 bg-gruvbox-bg1 md:h-auto md:absolute md:items-start"
 >
   <div class="flex gap-2 flex-col">
-    <div>
-      <Logo />
-    </div>
-
-    <nav class="flex-grow hidden md:block">
-      <ul class="block space-x-2 text-xs">
-        {
-          socialNetworks.allSocialNetworks.edges.map((edge) => (
-            <li class="inline-block">
-              <a href={edge.node.connectionUrl}>
-                <i class={edge.node.fontAwesomeIcon} />
-                <span class="sr-only">{edge.node.label}</span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+    <Logo />
+    <SocialNetworks 
+      containerClassName="hidden md:block"
+      listClassName="flex gap-2"
+      iconClassName="text-xs"
+    />
   </div>
 
   <div class="h-full">
-    <Menu className={["hidden md:block"]} />
+    <NavigationMenu
+      containerClassName="hidden md:block"
+      listClassName="grid grid-cols-2 gap-x-12 gap-y-2"
+    />
     <MenuButton className="md:hidden" client:only="react" />
   </div>
 </header>

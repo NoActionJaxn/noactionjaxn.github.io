@@ -1,66 +1,40 @@
 ---
-import { ROUTES } from "../constants/routes";
-import allSocialNetworksQuery from "../lib/requests/allSocialNetworks";
 import Logo from "./Logo.astro";
-
-const currentPath = Astro.url.pathname;
-const socialNetworks = await allSocialNetworksQuery;
+import NavigationMenu from "./NavigationMenu.astro";
+import SocialNetworks from "./SocialNetworks.astro";
 ---
 
-<footer class="h-96 bg-gruvbox-bg0 px-20 py-16">
+<footer class="bg-gruvbox-bg0 px-20 py-16">
   <div class="flex h-full gap-12">
-    <div class="flex-grow space-y-4">
+    <div class="flex-grow max-w-md space-y-4">
       <div>
         <Logo className="text-4xl px-4 py-2" />
       </div>
       <div>
-        <p class="max-w-md">
+        <p>
           noactionjaxn is a personal blog about web development, programming,
           and other things.
         </p>
       </div>
     </div>
-    <div class="col-span-3">
-      <nav class="text-right">
-        <ul class="text-2xl space-y-2">
-          {
-            Object.values(ROUTES).map((route) => (
-              <li>
-                <a
-                  class="relative inline-block group font-medium"
-                  href={route.path}
-                >
-                  <span>{route.label}</span>
-                  <span
-                    class:list={[
-                      "absolute left-0 -bottom-0.5 h-0.5 w-full bg-gruvbox-fg2 transition-transform duration-300 origin-left",
-                      route.path === currentPath
-                        ? "scale-x-100"
-                        : "scale-x-0 group-hover:scale-x-100",
-                    ]}
-                  />
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+    <div class="flex-grow"></div>
+    <div class="flex-grow max-w-sm">
+      <h3 class="text-gruvbox-fg5 uppercase pb-4">Site Map</h3>
+      <NavigationMenu
+        containerClassName="hidden md:block"
+        listClassName="space-y-4"
+        linkClassName="text-xl font-medium"
+        underLineClassName="!h-0.5 !-bottom-1.5"
+      />
     </div>
     <div>
-      <nav>
-        <ul class="text-2xl space-y-2">
-          {
-            socialNetworks.allSocialNetworks.edges.map((edge) => (
-              <li>
-                <a href={edge.node.connectionUrl}>
-                  <i class={edge.node.fontAwesomeIcon} />
-                  <span class="sr-only">{edge.node.label}</span>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+      <h3 class=" text-gruvbox-fg5 text-right uppercase pb-4">Socials</h3>
+      <SocialNetworks listClassName="flex justify-end gap-3" />
     </div>
+  </div>
+  <div class="border border-b-0 border-gruvbox-fg3 h-1 mt-32 mb-4"></div>
+  <div class="text-sm space-x-2">
+    <span>{new Date().getFullYear()} | noactionjaxn.dev</span>
+    <span class="text-gruvbox-fg5">Site by Jackson Hermitt</span>
   </div>
 </footer>
