@@ -56,7 +56,7 @@ export default function MobileMenu({ socialNetworks }: MobileMenuProps) {
       <nav className="flex justify-end">
         <ul className="block text-4xl space-x-8">
           {socialNetworks.map((edge) => (
-            <li className="inline-block">
+            <li key={edge.cursor} className="inline-block">
               <a href={edge.node.connectionUrl}>
                 <i className={edge.node.fontAwesomeIcon} />
                 <span className="sr-only">{edge.node.label}</span>

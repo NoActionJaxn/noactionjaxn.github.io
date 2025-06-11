@@ -1,18 +1,15 @@
 ---
 import "../styles/global.css";
-import Header from "../components/Header.astro";
-import MobileMenu from "../components/react/MobileMenu";
-import allSocialNetworksQuery from "../lib/requests/allSocialNetworks";
-import Footer from "../components/Footer.astro";
+import PageContainer from "../components/PageContainer.astro";
+import PageFooter from "../components/PageFooter.astro";
+import PageHeader from "../components/PageHeader.astro";
 
 interface Props {
   title?: string;
   className?: string;
 }
 
-const { title = "noactionjaxn", className = "" } = Astro.props;
-
-const socialNetworks = await allSocialNetworksQuery;
+const { title = "noactionjaxn" } = Astro.props;
 ---
 
 <!doctype html>
@@ -33,16 +30,10 @@ const socialNetworks = await allSocialNetworksQuery;
       is:inline></script>
   </head>
   <body>
-    <div class="flex flex-col w-screen min-h-screen">
-      <Header />
-      <main class:list={["flex-grow pt-54", className]}>
-        <slot />
-      </main>
-      <Footer />
-    </div>
-    <MobileMenu
-      client:only="react"
-      socialNetworks={socialNetworks.allSocialNetworks.edges}
-    />
+    <PageHeader />
+    <PageContainer>
+      <slot />
+    </PageContainer>
+    <PageFooter />
   </body>
 </html>
