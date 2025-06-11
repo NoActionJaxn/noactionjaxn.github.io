@@ -1,0 +1,28 @@
+---
+type Props = {
+  className?: string;
+  title?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+};
+
+const { className, title = "Button", type = "button", disabled = false } = Astro.props;
+---
+
+<button
+  class:list={[
+    "font-quicksand uppercase font-bold text-gruvbox-bg1 cursor-pointer px-4 py-2 rounded focus:outline-none",
+    type === "button" &&
+      "bg-gruvbox-blue hover:bg-gruvbox-blue-alt focus:ring-2 focus:ring-gruvbox-blue/50",
+    type === "submit" &&
+      "bg-gruvbox-green hover:bg-gruvbox-green-alt focus:ring-gruvbox-green/50",
+    type === "reset" &&
+      "bg-gruvbox-red hover:bg-gruvbox-red-alt focus:ring-gruvbox-red/50",
+    disabled && "bg-gruvbox-bg3 text-gruvbox-bg1 cursor-not-allowed",
+    className,
+  ]}
+  title={title}
+  type={type}
+>
+  <slot />
+</button>
