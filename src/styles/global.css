@@ -10,10 +10,92 @@
 
   html,
   body {
-    @apply w-screen min-h-screen;
+    @apply w-screen min-h-screen font-medium;
   }
 
   body {
-    @apply bg-gruvbox-bg1 text-gruvbox-fg2;
+    @apply bg-gruvbox-bg1 text-gruvbox-fg2 font-quicksand text-base leading-normal;
+  }
+
+  h1, h2, h3 {
+    @apply font-oswald font-bold uppercase;
+  }
+
+  h4, h5, h6 {
+    @apply font-quicksand font-bold;
+  }
+
+  h1 {
+    @apply text-7xl;
+  }
+
+  h2 {
+    @apply text-5xl;
+  }
+
+  h3 {
+    @apply text-4xl;
+  }
+
+  h4 {
+    @apply text-3xl;
+  }
+
+  h5 {
+    @apply text-2xl;
+  }
+
+  h6 {
+    @apply text-xl;
+  }
+
+  a {
+    @apply text-gruvbox-blue hover:text-gruvbox-blue-alt hover:underline;
+  }
+
+  blockquote {
+    @apply border-l-4 border-gruvbox-blue pl-4 italic text-gruvbox-fg3 my-4;
+  }
+
+  code {
+    @apply bg-gruvbox-bg3 text-gruvbox-fg2 px-2 py-1 rounded font-mono;
+  }
+
+  hr {
+    @apply border-gruvbox-bg3 my-4;
+  }
+
+  button {
+    @apply font-quicksand uppercase font-bold text-gruvbox-bg1 bg-gruvbox-blue hover:bg-gruvbox-blue-alt cursor-pointer px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-gruvbox-blue/50;
+  }
+
+  button:disabled {
+    @apply bg-gruvbox-bg3 text-gruvbox-bg1 cursor-not-allowed;
+  }
+
+  button[type="submit"] {
+    @apply bg-gruvbox-green hover:bg-gruvbox-green-alt focus:ring-gruvbox-green/50;
+  }
+
+  button[type="reset"] {
+    @apply bg-gruvbox-red hover:bg-gruvbox-red-alt focus:ring-gruvbox-red/50;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    @apply font-quicksand font-bold border-2 border-gruvbox-fg2 bg-gruvbox-bg5 text-gruvbox-fg2 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-gruvbox-blue/50;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-gruvbox-fg3;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    @apply accent-gruvbox-blue focus:ring-gruvbox-blue/50;
   }
 }
