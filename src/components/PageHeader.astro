@@ -1,7 +1,58 @@
 ---
+import { NAV_ROUTES } from "../constants/routes";
+import allSocialNetworksQuery from "../lib/requests/allSocialNetworks";
+import AnimatedLogo from "./react/AnimatedLogo";
 
+const socialNetworks = await allSocialNetworksQuery;
 ---
 
-<header>
+<header
+  class="absolute top-0 left-0 right-0 z-10 grid grid-cols-3 justify-between items-center w-full px-20 h-24"
+>
+  <nav class="flex justify-start items-center gap-4">
+    <ul class="space-x-4 text-sm uppercase">
+      {
+        socialNetworks.allSocialNetworks.edges.map(({ node }) => (
+          <li class="inline-block">
+            <a
+              href={node.connectionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gruvbox-fg5 hover:text-gruvbox-fg2"
+            >
+              <i class={node.fontAwesomeIcon} />
+              <span class="sr-only">{node.label}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 
+  <div class="flex justify-center">
+    <AnimatedLogo client:only="react" />
+  </div>
+
+  <nav class="flex justify-end">
+    <ul class="inline-flex text-sm uppercase">
+      {
+        NAV_ROUTES.map((route) => (
+          <li>
+            <a
+              href={route.path}
+              class="group text-gruvbox-fg5 hover:text-gruvbox-fg2 hover:no-underline"
+            >
+              <span class="relative top-[-1px] opacity-0 group-hover:opacity-100">
+                [
+              </span>
+              <span>{route.label}</span>
+              <span class="relative top-[-1px] opacity-0 group-hover:opacity-100">
+                ]
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </header>

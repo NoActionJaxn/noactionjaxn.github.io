@@ -1,66 +1,69 @@
 ---
 import Button from "../components/Button.astro";
+import Section from "../components/Section.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
 <DefaultLayout title="noactionjaxn" className="flex flex-col">
-  <div class="space-y-4 p-4">
-    <h1>This is a h1</h1>
-    <h2>This is a h2</h2>
-    <h3>This is a h3</h3>
-    <h4>This is a h4</h4>
-    <h5>This is a h5</h5>
-    <h6>This is a h6</h6>
-    <p>
-      This is a paragraph with <a href="#">a link</a> and <strong
-        >strong text</strong
-      >.
-    </p>
-    <div>
-      <p>Here is a code block:</p>
-      <pre><code class="language-js">console.log('Hello, world!');</code></pre>
-    </div>
+  <Section>
+    <div class="space-y-4 p-4">
+      <h1>This is a h1</h1>
+      <h2>This is a h2</h2>
+      <h3>This is a h3</h3>
+      <h4>This is a h4</h4>
+      <h5>This is a h5</h5>
+      <h6>This is a h6</h6>
+      <p>
+        This is a paragraph with <a href="#">a link</a> and <strong
+          >strong text</strong
+        >.
+      </p>
+      <div>
+        <p>Here is a code block:</p>
+        <pre><code class="language-js">console.log('Hello, world!');</code></pre>
+      </div>
 
-    <div>
-      <blockquote>This is a blockquote.</blockquote>
-    </div>
+      <div>
+        <blockquote>This is a blockquote.</blockquote>
+      </div>
 
-    <div class="flex flex-col items-start gap-4">
-      <Button type="button">Button</Button>
-      <Button type="button" disabled>Disabled Button</Button>
-      <Button type="submit">Submit Button</Button>
-      <Button type="reset">Reset Button</Button>
-    </div>
+      <div class="flex flex-col items-start gap-4">
+        <Button type="button">Button</Button>
+        <Button type="button" disabled>Disabled Button</Button>
+        <Button type="submit">Submit Button</Button>
+        <Button type="reset">Reset Button</Button>
+      </div>
 
-    <div>
-      <input type="text" placeholder="Type here..." />
-    </div>
+      <div>
+        <input type="text" placeholder="Type here..." />
+      </div>
 
-        <div>
-      <textarea placeholder="Type your message here..."></textarea>
-    </div>
+      <div>
+        <textarea placeholder="Type your message here..."></textarea>
+      </div>
 
-    <div>
-      <select>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </select>
-    </div>
+      <div>
+        <select>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+      </div>
 
-    <div>
-      <input type="checkbox" id="checkbox" />
-      <label for="checkbox">Check this box</label>
-    </div>
+      <div>
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox">Check this box</label>
+      </div>
 
-    <div>
-      <input type="radio" id="radio1" name="radio-group" />
-      <label for="radio1">Radio Option 1</label>
-      <input type="radio" id="radio2" name="radio-group" />
-      <label for="radio2">Radio Option 2</label>
-      <input type="radio" id="radio3" name="radio-group" />
-      <label for="radio3">Radio Option 3</label>
+      <div>
+        <input type="radio" id="radio1" name="radio-group" />
+        <label for="radio1">Radio Option 1</label>
+        <input type="radio" id="radio2" name="radio-group" />
+        <label for="radio2">Radio Option 2</label>
+        <input type="radio" id="radio3" name="radio-group" />
+        <label for="radio3">Radio Option 3</label>
+      </div>
     </div>
-  </div>
-  <hr />
+    <hr />
+  </Section>
 </DefaultLayout>

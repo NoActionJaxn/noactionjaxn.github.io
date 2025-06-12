@@ -4,9 +4,9 @@ interface Route {
 }
 
 export const ROUTES: Record<string, Route> = {
-  home: {
+  index: {
     path: "/",
-    label: "Home",
+    label: "Index",
   },
   about: {
     path: "/about",
@@ -25,3 +25,13 @@ export const ROUTES: Record<string, Route> = {
     label: "Contact",
   },
 };
+
+export const NAV_ROUTES = [ROUTES.index, ROUTES.about, ROUTES.contact];
+
+export const SITE_MAP_ROUTES = [
+  ROUTES.index,
+  ROUTES.projects,
+  ROUTES.blog,
+  ROUTES.about,
+  ROUTES.contact,
+];

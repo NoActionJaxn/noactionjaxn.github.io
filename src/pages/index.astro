@@ -1,14 +1,17 @@
 ---
+import Section from "../components/Section.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
 <DefaultLayout title="Welcome to Astro" className="flex flex-col">
-  <div class="space-y-4 p-4">
-    <h1>Welcome to Astro!</h1>
-    <p>
-      This is a simple page to demonstrate the basic structure of an Astro
-      application. You can use this as a starting point for your own projects.
-    </p>
-    <a href="https://astro.build">Learn more about Astro</a>
-  </div>
+  <Section>
+    <div class="space-y-4">
+      <h1>Welcome to Astro!</h1>
+      <p>
+        This is a simple page to demonstrate the basic structure of an Astro
+        application. You can use this as a starting point for your own projects.
+      </p>
+      <a href="https://astro.build">Learn more about Astro</a>
+    </div>
+  </Section>
 </DefaultLayout>

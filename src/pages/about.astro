@@ -1,7 +1,51 @@
 ---
+import AnchorButton from "../components/AnchorButton.astro";
+import Section from "../components/Section.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
 <DefaultLayout>
-  <p>This is the about page</p>
+  <Section>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <h1>About Page</h1>
+        <h4>
+          Welcome to the about page! Here you can learn more about me and my
+          work.
+        </h4>
+      </div>
+
+      <div class="space-y-4">
+        <p>
+          I am a web developer with a passion for creating dynamic and engaging
+          user experiences. My journey in web development started several years
+          ago, and since then, I have honed my skills in various technologies
+          including HTML, CSS, JavaScript, and modern frameworks.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h2>My Work:</h2>
+        <ul class="list-disc space-y-4 relative left-4">
+          <li>Project 1: A responsive website for a local business.</li>
+          <li>Project 2: An e-commerce platform built with React and Redux.</li>
+          <li>Project 3: A data visualization dashboard using D3.js.</li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <h2>Contact Me:</h2>
+        <p>
+          If you have any questions or would like to connect, feel free to reach
+          out!
+        </p>
+      </div>
+
+      <div>
+        <AnchorButton href="mailto:your-email@example.com"
+          >Contact me</AnchorButton
+        >
+      </div>
+    </div>
+  </Section>
 </DefaultLayout>

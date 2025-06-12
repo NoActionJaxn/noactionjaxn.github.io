@@ -1,7 +1,57 @@
 ---
+import { SITE_MAP_ROUTES } from "../constants/routes";
+import allSocialNetworksQuery from "../lib/requests/allSocialNetworks";
+import AnimatedLogo from "./react/AnimatedLogo";
 
+const socialNetworks = await allSocialNetworksQuery;
 ---
 
-<footer>
+<footer
+  class="col-span-8 grid grid-cols-8 gap-4 px-20 pt-16 pb-20 bg-gruvbox-bg0"
+>
+  <div class="col-span-4">
+    <AnimatedLogo client:only="react" />
+  </div>
 
+  <div class="col-span-2 space-y-2">
+    <div>
+      <h6 class="uppercase text-sm text-gruvbox-fg5">SiteMap</h6>
+    </div>
+    <nav>
+      <ul>
+        {
+          SITE_MAP_ROUTES.map((route) => (
+            <li>
+              <a href={route.path} class="group text-gruvbox-fg">
+                {route.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <div class="col-span-2 space-y-2">
+    <div>
+      <h6 class="uppercase text-sm text-gruvbox-fg5">Follow Me</h6>
+    </div>
+    <nav>
+      <ul>
+        {
+          socialNetworks.allSocialNetworks.edges.map(({ node }) => (
+            <li>
+              <a
+                href={node.connectionUrl}
+                target="_blank"
+                class="group text-gruvbox-fg"
+              >
+                <span>{node.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
 </footer>

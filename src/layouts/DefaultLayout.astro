@@ -3,6 +3,7 @@ import "../styles/global.css";
 import PageContainer from "../components/PageContainer.astro";
 import PageFooter from "../components/PageFooter.astro";
 import PageHeader from "../components/PageHeader.astro";
+import Aside from "../components/Aside.astro";
 
 interface Props {
   title?: string;
@@ -30,10 +31,13 @@ const { title = "noactionjaxn" } = Astro.props;
       is:inline></script>
   </head>
   <body>
-    <PageHeader />
-    <PageContainer>
-      <slot />
-    </PageContainer>
-    <PageFooter />
+    <div class="relative w-full min-h-screen flex flex-col">
+      <PageHeader />
+      <PageContainer>
+        <slot />
+      </PageContainer>
+      <PageFooter />
+    </div>
+    <Aside />
   </body>
 </html>
