@@ -1,0 +1,41 @@
+---
+import { ROUTES } from "../constants/routes";
+import allSocialNetworksQuery from "../lib/requests/allSocialNetworks";
+import Logo from "./react/Logo";
+import Menu from "./react/Menu";
+import MenuButton from "./react/MenuButton";
+import ThemeToggle from "./react/ThemeToggle";
+
+const routes = [
+  ROUTES.index,
+  ROUTES.projects,
+  ROUTES.blog,
+  ROUTES.about,
+  ROUTES.contact,
+];
+
+const socials = await allSocialNetworksQuery;
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 w-full z-50">
+  <Menu
+    currentPath={currentPath}
+    routes={routes}
+    socials={socials.allSocialNetworks.edges}
+    client:only="react"
+  />
+  <div
+    class="flex items-center justify-between h-20 px-20 border-b border-gruvbox-bg2 bg-gruvbox-bg1"
+  >
+    <div>
+      <Logo client:only="react" />
+    </div>
+
+    <div>
+      <MenuButton client:only="react" />
+    </div>
+  </div>
+  <ThemeToggle client:only="react" />
+</header>

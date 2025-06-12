@@ -1,4 +1,4 @@
-interface Route {
+export interface Route {
   path: string;
   label: string;
 }
@@ -25,13 +25,3 @@ export const ROUTES: Record<string, Route> = {
     label: "Contact",
   },
 };
-
-export const NAV_ROUTES = [ROUTES.index, ROUTES.about, ROUTES.contact];
-
-export const SITE_MAP_ROUTES = [
-  ROUTES.index,
-  ROUTES.projects,
-  ROUTES.blog,
-  ROUTES.about,
-  ROUTES.contact,
-];

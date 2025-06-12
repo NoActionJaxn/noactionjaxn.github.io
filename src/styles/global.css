@@ -13,19 +13,19 @@
   }
 
   body {
-    @apply bg-gruvbox-bg1 text-gruvbox-fg2 font-quicksand text-base leading-normal;
+    @apply bg-gruvbox-bg1 text-gruvbox-fg4 font-quicksand text-base tracking-wide;
   }
 
   h1,
   h2,
   h3 {
-    @apply font-oswald font-bold uppercase;
+    @apply font-oswald font-bold uppercase text-gruvbox-fg2 tracking-normal;
   }
 
   h4,
   h5,
   h6 {
-    @apply font-quicksand font-bold;
+    @apply font-quicksand font-bold text-gruvbox-fg2 tracking-wide;
   }
 
   h1 {
