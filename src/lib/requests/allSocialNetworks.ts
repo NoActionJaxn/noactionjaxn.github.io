@@ -1,16 +1,5 @@
-import type { CaisyEdges } from "../../types/caisy";
 import graphql from "./graphql";
-
-export interface SocialNetwork {
-  connectionUrl: string;
-  fontAwesomeIcon: string;
-  id: string;
-  label: string;
-}
-
-export interface AllSocialNetworksResponse {
-  allSocialNetworks: CaisyEdges<SocialNetwork>;
-}
+import type { AllSocialNetworksResponse } from "../../types/requests";
 
 const allSocialNetworksQuery = graphql.request<AllSocialNetworksResponse>(`
 query FetchAllSocialNetworks {

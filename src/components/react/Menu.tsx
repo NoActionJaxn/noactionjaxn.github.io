@@ -1,9 +1,9 @@
 import { useStore } from "@nanostores/react";
-import { isMenuOpen } from "../../stores/menuStore";
 import { motion } from "framer-motion";
-import { type Route } from "../../constants/routes";
-import type { AllSocialNetworksResponse } from "../../lib/requests/allSocialNetworks";
 import classNames from "classnames";
+import { isMenuOpen } from "../../stores/menuStore";
+import type { Route } from "../../types/route";
+import type { AllSocialNetworksResponse } from "../../types/requests";
 
 export interface MenuProps {
   currentPath?: string;

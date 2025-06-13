@@ -1,7 +1,4 @@
-export interface Route {
-  path: string;
-  label: string;
-}
+import type { Route } from "../types/route";
 
 export const ROUTES: Record<string, Route> = {
   index: {

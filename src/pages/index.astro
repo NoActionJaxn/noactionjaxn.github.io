@@ -1,14 +1,31 @@
 ---
+import { Debug } from "astro:components";
 import Section from "../components/Section.astro";
 import PageLayout from "../layouts/PageLayout.astro";
+import landingPageIntroQuery from "../lib/requests/landingPageIntro";
+import LinkButton from "../components/LinkButton.astro";
+import { ROUTES } from "../constants/routes";
+
+const landingPage = await landingPageIntroQuery;
 ---
 
 <PageLayout title="Welcome to Astro" className="flex flex-col">
-  <Section>
-    <div class="space-y-2">
-      <h1>Welcome to Our Website</h1>
-      <p>This is a sample home page for Astro.</p>
-      <button>Get Started</button>
+  <Section className="grid grid-cols-2 gap-x-8 flex-grow px-20 py-20">
+    <div class="flex flex-col gap-12 justify-center">
+      <div class="space-y-4">
+        <h1>{landingPage.LandingPageIntro.title}</h1>
+        <h4>{landingPage.LandingPageIntro.description}</h4>
+      </div>
+      <div>
+        <LinkButton className="text-2xl" href={ROUTES.about.path}>Read More</LinkButton>
+      </div>
+    </div>
+    <div class="rounded-xl overflow-hidden">
+      <img
+        src={landingPage.LandingPageIntro.avatar.src}
+        alt={landingPage.LandingPageIntro.avatar.originalName}
+        class="object-cover w-full h-full"
+      />
     </div>
   </Section>
 </PageLayout>

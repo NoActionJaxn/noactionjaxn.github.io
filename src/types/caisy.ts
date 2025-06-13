@@ -14,3 +14,20 @@ export interface CaisyEdges<T> {
     cursor: string;
   }[];
 }
+
+export interface CaisyAsset {
+  _meta: CaisyMeta;
+  author: string;
+  blurHash: string;
+  copyright: string;
+  description: string;
+  dominantColor: string;
+  height: number;
+  id: string;
+  keywords: string[];
+  originType: string;
+  originalName: string;
+  src: string;
+  title: string;
+  width: number;
+}

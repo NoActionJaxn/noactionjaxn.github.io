@@ -1,23 +1,43 @@
 ---
+import Button from "../components/Button.astro";
 import Section from "../components/Section.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 ---
 
 <PageLayout>
-  <Section>
-    <div class="space-y-2">
-      <form action="/submit-contact" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <button type="submit">Submit</button>
-      </form>
+  <Section className="flex-grow px-20 py-12 space-y-16">
+    <div>
+      <h1>Contact Me</h1>
     </div>
+    <form action="/submit-contact" method="POST">
+      <div class="grid grid-cols-2 gap-x-16 gap-y-12">
+        <div class="flex flex-col gap-1 col-span-1">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="flex flex-col gap-1 col-span-1">
+          <label for="email">email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="flex flex-col gap-1 col-span-2">
+          <label for="reason">Contact Reason:</label>
+          <select id="reason" name="reason" required>
+            <option value=""></option>
+            <option value="support">Support</option>
+            <option value="feedback">Feedback</option>
+            <option value="question">Question</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-1 col-span-2">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <div class="flex flex-row justify-end gap-8 col-span-2">
+          <Button type="submit" className="text-2xl">Submit</Button>
+          <Button type="reset" className="text-2xl">Reset</Button>
+        </div>
+      </div>
+    </form>
   </Section>
 </PageLayout>
