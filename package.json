@@ -9,13 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.4",
+    "@astrojs/react": "^4.3.0",
     "@caisy/rich-text-astro-renderer": "^1.0.2",
     "@nanostores/react": "^1.0.0",
     "@tailwindcss/vite": "^4.1.4",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
-    "astro": "^5.7.4",
+    "astro": "^5.12.5",
     "classnames": "^2.5.1",
     "framer-motion": "^12.7.4",
     "graphql-request": "^7.1.2",
