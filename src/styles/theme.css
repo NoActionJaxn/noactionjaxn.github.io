@@ -3,13 +3,13 @@
   --font-quicksand: "Quicksand", sans-serif;
   --default-font-family: var(--font-quicksand);
 
-  --color-gruvbox-bg0_h: #FFFFFC;
-  --color-gruvbox-bg0: #fdfbe6;
-  --color-gruvbox-bg1: #fbf1c7;
-  --color-gruvbox-bg2: #ebdbb2;
-  --color-gruvbox-bg3: #d5c4a1;
-  --color-gruvbox-bg4: #bdae93;
-  --color-gruvbox-bg5: #a89984;
+  --color-gruvbox-bg0: #FFFFFC;
+  --color-gruvbox-bg1: #fdfbe6;
+  --color-gruvbox-bg2: #fbf1c7;
+  --color-gruvbox-bg3: #ebdbb2;
+  --color-gruvbox-bg4: #d5c4a1;
+  --color-gruvbox-bg5: #bdae93;
+  --color-gruvbox-bg6: #a89984;
   --color-gruvbox-fg0: #1d2021;
   --color-gruvbox-fg1: #282828;
   --color-gruvbox-fg2: #3c3836;
@@ -35,13 +35,13 @@
 
 @layer base {
   [data-theme="dark"] {
-    --color-gruvbox-bg0_h: #151616;
-    --color-gruvbox-bg0: #1d2021;
-    --color-gruvbox-bg1: #282828;
-    --color-gruvbox-bg2: #3c3836;
-    --color-gruvbox-bg3: #504945;
-    --color-gruvbox-bg4: #665c54;
-    --color-gruvbox-bg5: #7c6f64;
+    --color-gruvbox-bg0: #151616;
+    --color-gruvbox-bg1: #1d2021;
+    --color-gruvbox-bg2: #282828;
+    --color-gruvbox-bg3: #3c3836;
+    --color-gruvbox-bg4: #504945;
+    --color-gruvbox-bg5: #665c54;
+    --color-gruvbox-bg6: #7c6f64;
     --color-gruvbox-fg0: #fdfbe6;
     --color-gruvbox-fg1: #fbf1c7;
     --color-gruvbox-fg2: #ebdbb2;

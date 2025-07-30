@@ -1,16 +1,13 @@
 ---
-import Section from "../components/Section.astro";
-import PageLayout from "../layouts/PageLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<PageLayout>
-  <Section>
-    <div class="space-y-2">
+<BaseLayout>
+    <div class="w-full h-full flex flex-col items-center justify-center gap-2">
       <h1>About Us</h1>
       <p>
         Welcome to our website! We are a team of passionate developers dedicated
         to creating innovative and user-friendly solutions.
       </p>
     </div>
-  </Section>
-</PageLayout>
+</BaseLayout>

@@ -1,21 +1,16 @@
 ---
 import allSocialNetworksQuery from "../lib/requests/allSocialNetworks";
-import Logo from "./react/Logo";
 
 const socials = await allSocialNetworksQuery;
 ---
 
 <footer
-  class="px-20 h-20 flex justify-between items-center"
+  class="fixed bottom-0 left-0 w-full h-12 px-4 flex justify-between items-center"
 >
-  <div class="flex items-baseline gap-1">
-    <Logo className="!text-sm" client:only="react" />
-
-    <span class="text-xs text-gruvbox-fg5 select-none">by Jackson Hermitt</span>
-  </div>
+  <div />
 
   <nav>
-    <ul class="space-x-3 text-xs">
+    <ul class="space-x-2 text-xs">
       {
         socials.allSocialNetworks.edges.map(({ node }) => (
           <li class="inline-block">
@@ -23,7 +18,7 @@ const socials = await allSocialNetworksQuery;
               href={node.connectionUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-gruvbox-fg3 hover:text-gruvbox-fg1 transition-colors"
+              class="text-gruvbox-fg1 hover:text-gruvbox-fg0 transition-colors"
             >
               <i class={node.fontAwesomeIcon} />
               <span class="sr-only">{node.label}</span>

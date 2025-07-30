@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+import allSocialNetworksQuery from "../lib/requests/allSocialNetworks";
+
+const networks = await allSocialNetworksQuery.then((res) => res.allSocialNetworks.edges);
+---
+
+<BaseLayout title="Coming Soon">
+  <Section className="flex flex-col items-center justify-center space-y-10">
+    <div class="border-l border-gruvbox-fg5 w-xl px-6 py-2 space-y-2">
+      <h1 class="text-4xl text-gruvbox-fg1 font-bold">Coming Soon</h1>
+      <p class="text-lg text-gruvbox-fg5">I am working hard to launch something great. Stay tuned!</p>
+    </div>
+    <div class="border-l border-gruvbox-fg5 w-xl px-6 py-1">
+      <nav class="h-full flex">
+        <h2 class="text-xl mr-4">Find me here: </h2>
+        <ul class="inline text-2xl space-x-4">
+          {networks.map(({ node }) => (
+            <li class="inline-block">
+              <a
+                href={node.connectionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gruvbox-fg1 hover:text-gruvbox-fg0 transition-colors"
+              >
+                <i class={node.fontAwesomeIcon} />
+                <span class="sr-only">{node.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </Section>
+</BaseLayout>

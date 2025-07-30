@@ -1,5 +1,16 @@
 import type { Route } from "../types/route";
 
+export const TEMP_ROUTES: Record<string, Route> = {
+  index: {
+    path: "/coming-soon",
+    label: "Index"
+  },
+  about: {
+    path: "/about",
+    label: "About",
+  },
+};
+
 export const ROUTES: Record<string, Route> = {
   index: {
     path: "/",

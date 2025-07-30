@@ -8,8 +8,8 @@ export interface LogoProps {
 export default function Logo({ className }: LogoProps) {
   return (
     <div className="w-min h-min">
-      <a href={ROUTES.index.path} className={classNames("block text-gruvbox-fg2 no-underline uppercase font-oswald text-xl", className)}>
-        noactionjaxn
+      <a href={ROUTES.index.path} className={classNames("block no-underline uppercase font-oswald", className)}>
+        JAXN.HRMT
       </a>
     </div>
   );

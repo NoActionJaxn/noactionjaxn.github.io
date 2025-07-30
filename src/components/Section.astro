@@ -3,9 +3,9 @@ type Props = {
   className?: string;
 };
 
-const { className = "flex-grow px-20 py-12" } = Astro.props;
+const { className = "" } = Astro.props;
 ---
 
-<section class={className}>
+<section class:list={[className, "flex-grow px-4 py-12"]}>
   <slot />
 </section>
